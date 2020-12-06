@@ -1,7 +1,7 @@
 FROM debian:jessie
 MAINTAINER Nicolas Limage <github@xephon.org>
 
-ARG PYTHON_VERSION=3.4
+ARG PYTHON_VERSION=3.9
 ENV PYTHON_VERSION $PYTHON_VERSION
 ENV PYTHON python$PYTHON_VERSION
 
@@ -16,7 +16,7 @@ COPY get-pip.py /usr/local/bin/
 RUN $PYTHON /usr/local/bin/get-pip.py
 RUN test -f /usr/bin/python || ln -s $PYTHON /usr/bin/python
 
-ARG PYINSTALLER_VERSION=3.1.1
+ARG PYINSTALLER_VERSION=4.1.1
 ARG PYSCHEMA_VERSION=0.6.5
 ARG PYYAML_VERSION=3.12
 RUN $PYTHON -m pip install pyinstaller==$PYINSTALLER_VERSION pyyaml==$PYYAML_VERSION schema==$PYSCHEMA_VERSION
